@@ -1,28 +1,25 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
 const Footer: React.FC = () => {
-  const defaultMessage = '蚂蚁集团体验技术部出品';
-  const currentYear = new Date().getFullYear();
   return (
     <DefaultFooter
-      copyright={`${currentYear} ${defaultMessage}`}
+      copyright={false}
       links={[
         {
-          key: 'Ant Design Pro',
-          title: 'Ant Design Pro',
-          href: 'https://pro.ant.design',
+          key: 'bilibili',
+          title: <><img
+            src={'https://www.bilibili.com/favicon.ico'}
+            style={{
+                width: '16px',
+                height: '16px'
+            }} /><text> bilibili</text></>,
+          href: 'https://space.bilibili.com/434850860',
           blankTarget: true,
         },
         {
           key: 'github',
-          title: <GithubOutlined />,
-          href: 'https://github.com/ant-design/ant-design-pro',
-          blankTarget: true,
-        },
-        {
-          key: 'Ant Design',
-          title: 'Ant Design',
-          href: 'https://ant.design',
+          title: <><GithubOutlined /><text> GitHub</text></>,
+          href: 'https://github.com/220809',
           blankTarget: true,
         },
       ]}
