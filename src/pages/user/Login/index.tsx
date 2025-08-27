@@ -1,17 +1,11 @@
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 import {
-  AlipayCircleOutlined,
   LockOutlined,
-  MobileOutlined,
-  TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
 } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
@@ -64,7 +58,6 @@ const Login: React.FC = () => {
         history.push(redirect || '/');
         return;
       }
-      console.log(msg);
       // 如果失败去设置用户错误信息
       setUserLoginState(msg);
     } catch (error) {
@@ -87,9 +80,17 @@ const Login: React.FC = () => {
             await handleSubmit(values as API.LoginParams);
           }}
         >
-          <Tabs activeKey={type} onChange={setType}>
-            <Tabs.TabPane key="account" tab={'账户密码登录'} />
-          </Tabs>
+          <Tabs
+            activeKey={type}
+            onChange={setType}
+            items={[
+              {
+                label: '账户登录',
+                key: 'account',
+              },
+            ]}
+          />
+
 
           {status === 'error' && loginType === 'account' && (
             <LoginMessage content={'错误的用户名和密码'} />
@@ -106,7 +107,7 @@ const Login: React.FC = () => {
                 rules={[
                   {
                     required: true,
-                    message: '用户名是必填项！',
+                    message: '必填项',
                   },
                 ]}
               />
@@ -120,7 +121,7 @@ const Login: React.FC = () => {
                 rules={[
                   {
                     required: true,
-                    message: '密码是必填项！',
+                    message: '必填项',
                   },
                 ]}
               />
@@ -128,7 +129,7 @@ const Login: React.FC = () => {
           )}
           <div
             style={{
-              marginBottom: 24,
+              marginBottom: 10,
             }}
           >
             <ProFormCheckbox noStyle name="autoLogin">
@@ -140,6 +141,22 @@ const Login: React.FC = () => {
               }}
             >
               忘记密码 ?
+            </a>
+          </div>
+          <div
+            style={{
+              marginBottom: 10,
+            }}
+          >
+
+            <a
+              style={{
+                textAlign: 'center',
+                display: 'block',
+              }}
+              href={'/user/register'}
+            >
+              没有账户 ? 点击创建
             </a>
           </div>
         </LoginForm>

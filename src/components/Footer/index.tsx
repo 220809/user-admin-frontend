@@ -12,13 +12,13 @@ const Footer: React.FC = () => {
             style={{
                 width: '16px',
                 height: '16px'
-            }} /><text> bilibili</text></>,
+            }} /> bilibili</>,
           href: 'https://space.bilibili.com/434850860',
           blankTarget: true,
         },
         {
           key: 'github',
-          title: <><GithubOutlined /><text> GitHub</text></>,
+          title: <><GithubOutlined /> GitHub</>,
           href: 'https://github.com/220809',
           blankTarget: true,
         },
