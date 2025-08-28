@@ -1,5 +1,6 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
+import React from 'react';
 const Footer: React.FC = () => {
   return (
     <DefaultFooter
@@ -12,7 +13,9 @@ const Footer: React.FC = () => {
             style={{
                 width: '16px',
                 height: '16px'
-            }} /> bilibili</>,
+            }}
+            alt='bilibili'/> bilibili
+          </>,
           href: 'https://space.bilibili.com/434850860',
           blankTarget: true,
         },
